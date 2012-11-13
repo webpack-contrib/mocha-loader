@@ -15,14 +15,16 @@ EnhancedMocha.prototype.loadFiles = function(fn) {
 	suite.tests.length = 0;
 	try {
 		var file = this.files[0];
-		module.hot.accept(file, function() {
-			if(self.watching) {
-				if(!self.running)
-					self.run();
-				else
-					self.outdated = true;
-			}
-		});
+		if(module.hot) {
+			module.hot.accept(file, function() {
+				if(self.watching) {
+					if(!self.running)
+						self.run();
+					else
+						self.outdated = true;
+				}
+			});
+		}
 		suite.emit('pre-require', global, file, self);
 		suite.emit('require', require(file), file, self);
 		suite.emit('post-require', global, file, self);
@@ -49,4 +51,9 @@ EnhancedMocha.prototype.watch = function() {
 		if(self.outdated)
 			self.watch();
 	});
+
+	if(module.hot) {
+		// Don't exit the process
+		setInterval(function() {}, 100000);
+	}
 };
