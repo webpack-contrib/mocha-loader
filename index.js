@@ -24,4 +24,3 @@ module.exports.pitch = function(req) {
 	}
 	return source.join("\n");
 }
-module.exports.seperable = true;
