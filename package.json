@@ -1,14 +1,16 @@
 {
 	"name": "mocha-loader",
-	"version": "0.6.0",
+	"version": "0.6.1",
 	"author": "Tobias Koppers @sokra",
 	"description": "mocha loader module for webpack",
+	"peerDependencies": {
+		"mocha": "1.x"
+	},
 	"dependencies": {
 		"script-loader": "0.5.x",
 		"css-loader": "0.6.x",
 		"style-loader": "0.6.x",
-		"loader-utils": "0.2.x",
-		"mocha": "1.x"
+		"loader-utils": "0.2.x"
 	},
 	"licenses": [
 		{
