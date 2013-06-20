@@ -14,6 +14,14 @@ module.exports.pitch = function(req) {
 		source.push("mocha.setup(" + JSON.stringify(query["interface"] || "bdd") + ");");
 		source.push("require(" + JSON.stringify("!!" + req) + ")");
 		source.push("mocha.run();");
+		source.push("if(module.hot) {");
+		source.push("\tmodule.hot.accept();");
+		source.push("\tmodule.hot.dispose(function() {");
+		source.push("\t\tmocha.suite.suites.length = 0;");
+		source.push("\t\tvar stats = document.getElementById('mocha-stats');");
+		source.push("\t\tstats.parentNode.removeChild(stats);");
+		source.push("\t});");
+		source.push("}");
 	} else if(this.target == "node") {
 		source.push('var EnhancedMocha = require(' + JSON.stringify("!!" + path.join(__dirname, "EnhancedMocha.js")) + ');');
 		source.push('var mocha = new EnhancedMocha({reporter: ' + JSON.stringify(query.reporter || "spec") + '});');
