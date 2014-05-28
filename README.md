@@ -3,11 +3,11 @@
 ## Usage
 
 ``` text
-webpack-dev-server "mocha!./my-client-tests.js" --options webpackOptions.js
+webpack-dev-server 'mocha!./my-client-tests.js' --options webpackOptions.js
 ```
 
 ``` text
-enhanced-require "mocha!./my-server-tests.js"
+enhanced-require 'mocha!./my-server-tests.js'
 ```
 
 ## License
