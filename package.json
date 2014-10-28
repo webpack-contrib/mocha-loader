@@ -8,13 +8,13 @@
 		"url" : "https://github.com/webpack/mocha-loader"
 	},
 	"peerDependencies": {
-		"mocha": "1.x"
+		"mocha": "^2.0.1"
 	},
 	"dependencies": {
-		"script-loader": "0.5.x",
-		"css-loader": "0.6.x",
-		"style-loader": "0.6.x",
-		"loader-utils": "0.2.x"
+		"script-loader": "~0.6.0",
+		"css-loader": "~0.9.0",
+		"style-loader": "~0.8.1",
+		"loader-utils": "~0.2.5"
 	},
 	"licenses": [
 		{
