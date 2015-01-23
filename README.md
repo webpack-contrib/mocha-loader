@@ -2,6 +2,8 @@
 
 ## Usage
 
+*Tip: when using `!` in the bash command line, you must escape it by prepending a `\`
+
 ``` text
 webpack-dev-server 'mocha!./my-client-tests.js' --options webpackOptions.js
 ```
