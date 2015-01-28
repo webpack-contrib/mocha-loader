@@ -16,17 +16,15 @@ enhanced-require 'mocha!./my-server-tests.js'
 
 ### webpack.config.js
 
-When using `webpack.config.js`, simply prepend `mocha!` in front of the entry:
+```js
 
-``` text
-// webpack.config.js 
 module.exports = {
     entry: 'mocha!./entry-file.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
     }
-};
+}
 ```
 
 ## License
