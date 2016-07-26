@@ -21,8 +21,8 @@ module.exports.pitch = function(req) {
 		source.push("\t\tmocha.suite.suites.length = 0;");
 		source.push("\t\tvar stats = document.getElementById('mocha-stats');");
 		source.push("\t\tvar report = document.getElementById('mocha-report');");
-		source.push("\t\tstats.parentNode.removeChild(stats);");
-		source.push("\t\treport.parentNode.removeChild(report);");
+		source.push("\t\tstats && stats.parentNode.removeChild(stats);");
+		source.push("\t\treport && report.parentNode.removeChild(report);");
 		source.push("\t});");
 		source.push("}");
 	} else if(this.target == "node") {
