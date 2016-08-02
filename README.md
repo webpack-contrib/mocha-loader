@@ -13,18 +13,25 @@ webpack-dev-server 'mocha!./my-client-tests.js' --options webpackOptions.js
 ``` text
 enhanced-require 'mocha!./my-server-tests.js'
 ```
-
-### webpack.config.js
+### Config
+#### webpack.config.js
 
 ```js
 
 module.exports = {
-    entry: 'mocha!./entry-file.js',
+    entry: './entry-file.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
     }
 }
+```
+
+#### entry-file.js
+```js
+/*additional setup with other loaders (polyfills, ...)*/
+const context = require.context(/*directory*/'mocha!./tests', /*recursive*/true, /*match files*//_test.js$/);
+context.keys().forEach(context);
 ```
 
 ## License
