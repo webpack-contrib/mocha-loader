@@ -21,5 +21,11 @@
 			"type": "MIT",
 			"url": "http://www.opensource.org/licenses/mit-license.php"
 		}
-	]
+	],
+	"devDependencies": {
+		"eslint": "^3.2.2"
+	},
+	"scripts": {
+		"lint": "eslint ."
+	}
 }
