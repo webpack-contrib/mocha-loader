@@ -30,7 +30,7 @@ module.exports = {
 #### entry-file.js
 ```js
 /*additional setup with other loaders (polyfills, ...)*/
-const context = require.context(/*directory*/'mocha!./tests', /*recursive*/true, /*match files*//_test.js$/);
+const context = require.context(/*directory*/'mocha-loader!./tests', /*recursive*/true, /*match files*//_test.js$/);
 context.keys().forEach(context);
 ```
 
