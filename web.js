@@ -1,4 +1,4 @@
 if (! document.getElementById("mocha")) { document.write("<div id=\"mocha\"></div>"); }
 
-require("!style!css!mocha/mocha.css");
-require("!script!mocha/mocha.js");
+require("!style-loader!css-loader!mocha/mocha.css");
+require("!script-loader!mocha/mocha.js");
