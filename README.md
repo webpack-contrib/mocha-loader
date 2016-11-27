@@ -1,39 +1,94 @@
-# mocha loader for webpack
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+[![deps][deps]][deps-url]
+[![tests][tests]][tests-url]
+[![coverage][cover]][cover-url]
+[![chat][chat]][chat-url]
 
-## Usage
+<div align="center">
+  <img width="200" height="200"
+    src="https://cdn.worldvectorlogo.com/logos/mocha.svg">
+  <a href="https://github.com/webpack/webpack">
+    <img width="200" height="200" hspace="20"
+      src="https://webpack.js.org/assets/icon-square-big.svg">
+  </a>
+  <h1>Mocha Loader</h1>
+  <h3>Mocha for webpack</h3>
+</div>
 
-### Command Line
+<h2 align="center">Install</h2>
 
-*Hint*: when using `!` in the bash command line, you must escape it by prepending a `\`
-
-``` text
-webpack-dev-server 'mocha!./my-client-tests.js' --options webpackOptions.js
+```bash
+npm install --save-dev mocha-loader
 ```
 
-``` text
-enhanced-require 'mocha!./my-server-tests.js'
-```
-### Config
-#### webpack.config.js
+<h2 align="center">Usage</h2>
 
+### Configuration (recommended)
+
+**webpack.config.js**
 ```js
 
 module.exports = {
-    entry: './entry-file.js',
-    output: {
-        path: __dirname,
-        filename: 'bundle.js'
-    }
+  entry: './entry.js',
+  output: {
+    path: __dirname,
+    filename: 'bundle.js'
+  }
 }
 ```
 
-#### entry-file.js
 ```js
-/*additional setup with other loaders (polyfills, ...)*/
-const context = require.context(/*directory*/'mocha-loader!./tests', /*recursive*/true, /*match files*//_test.js$/);
-context.keys().forEach(context);
+import test from './test'
 ```
 
-## License
+### CLI
 
-MIT (http://www.opensource.org/licenses/mit-license.php)
+```bash
+webpack --module-bind 'mocha-loader!./test'
+```
+
+```js
+import test from './test'
+```
+
+### Require
+
+```js
+import test from 'mocha-loader!./test'
+```
+
+<h2 align="center">Options</h2>
+
+<h2 align="center">Maintainer</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img width="150 height="150" src="https://github.com/sokra.png?s=150">
+        <br>
+        <a href="https://github.com/sokra">Tobias Koppers</a>
+      </td>
+    <tr>
+  <tbody>
+</table>
+
+
+[npm]: https://img.shields.io/npm/v/mocha-loader.svg
+[npm-url]: https://npmjs.com/package/mocha-loader
+
+[node]: https://img.shields.io/node/v/mocha-loader.svg
+[node-url]: https://nodejs.org
+
+[deps]: https://david-dm.org/webpack/mocha-loader.svg
+[deps-url]: https://david-dm.org/webpack/mocha-loader
+
+[tests]: http://img.shields.io/travis/webpack/mocha-loader.svg
+[tests-url]: https://travis-ci.org/webpack/mocha-loader
+
+[cover]: https://coveralls.io/repos/github/webpack/mocha-loader/badge.svg
+[cover-url]: https://coveralls.io/github/webpack/mocha-loader
+
+[chat]: https://badges.gitter.im/webpack/webpack.svg
+[chat-url]: https://gitter.im/webpack/webpack
