@@ -10,7 +10,7 @@ module.exports.pitch = function(req) {
 	var source = [];
 	var query = loaderUtils.parseQuery(this.query);
 	query.ui = query.ui || 'bdd';
-	if(this.target == "web") {
+	if(this.target == "web" || this.target == "electron-renderer") {
 		source.push("require(" + JSON.stringify("!!" + path.join(__dirname, "web.js")) + ");");
 		source.push("if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }");
 		source.push("mocha.setup(" + JSON.stringify(query) + ");");
