@@ -1,8 +1,5 @@
 [![npm][npm]][npm-url]
-[![node][node]][node-url]
 [![deps][deps]][deps-url]
-[![tests][tests]][tests-url]
-[![coverage][cover]][cover-url]
 [![chat][chat]][chat-url]
 
 <div align="center">
@@ -97,17 +94,8 @@ import test from 'mocha-loader!./test'
 [npm]: https://img.shields.io/npm/v/mocha-loader.svg
 [npm-url]: https://npmjs.com/package/mocha-loader
 
-[node]: https://img.shields.io/node/v/mocha-loader.svg
-[node-url]: https://nodejs.org
-
 [deps]: https://david-dm.org/webpack/mocha-loader.svg
 [deps-url]: https://david-dm.org/webpack/mocha-loader
-
-[tests]: http://img.shields.io/travis/webpack/mocha-loader.svg
-[tests-url]: https://travis-ci.org/webpack/mocha-loader
-
-[cover]: https://coveralls.io/repos/github/webpack/mocha-loader/badge.svg
-[cover-url]: https://coveralls.io/github/webpack/mocha-loader
 
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
