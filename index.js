@@ -8,7 +8,7 @@ module.exports = function() {};
 module.exports.pitch = function(req) {
 	this.cacheable && this.cacheable();
 	var source = [];
-	var query = loaderUtils.parseQuery(this.query);
+	var query = loaderUtils.getOptions(this) || {};
 	query.ui = query.ui || 'bdd';
 	if(this.target == "web" || this.target == "electron-renderer") {
 		source.push("require(" + JSON.stringify("!!" + path.join(__dirname, "web.js")) + ");");

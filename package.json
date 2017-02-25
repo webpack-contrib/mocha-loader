@@ -14,7 +14,7 @@
     "script-loader": "~0.7.0",
     "css-loader": "~0.23.1",
     "style-loader": "~0.13.1",
-    "loader-utils": "~0.2.15"
+    "loader-utils": "^1.0.2"
   },
   "licenses": [
     {
