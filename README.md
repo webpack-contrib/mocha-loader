@@ -10,7 +10,7 @@
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
   <h1>Mocha Loader</h1>
-  <h3>Mocha for webpack</h3>
+  <p>Allows <a href="http://mochajs.org/">Mocha</a> tests to be loaded and run via webpack</p>
 </div>
 
 <h2 align="center">Install</h2>
