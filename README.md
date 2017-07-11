@@ -32,9 +32,9 @@ module.exports = {
     path: __dirname,
     filename: 'bundle.js'
   },
-  modules: {
+  module: {
     rules: [{
-      test: /test.js$/,
+      test: /test\.js$/,
       use: 'mocha-loader',
       exclude: /node_modules/,
     }]
