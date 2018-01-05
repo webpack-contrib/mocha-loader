@@ -3,23 +3,23 @@
   "version": "1.1.1",
   "author": "Tobias Koppers @sokra",
   "description": "mocha loader module for webpack",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/webpack/mocha-loader"
-  },
-  "peerDependencies": {
-    "mocha": "^2.0.1 || ^3.0.0 || ^4.0.0"
+  "license": "MIT",
+  "scripts": {
+    "release": "standard-version"
   },
   "dependencies": {
-    "script-loader": "~0.7.0",
-    "css-loader": "~0.23.1",
-    "style-loader": "~0.13.1",
-    "loader-utils": "^1.0.2"
+    "script-loader": "^0.7.2",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.1",
+    "loader-utils": "^1.1.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ]
+  "devDependencies": {
+    "standard-version": "^4.3.0"
+  },
+  "peerDependencies": {
+    "mocha": "^2.0.0|| ^3.0.0 || ^4.0.0"
+  },
+  "homepage": "https://github.com/webpack-contrib/mocha-loader",
+  "repository": "https://github.com/webpack-contrib/mocha-loader",
+  "bugs": "https://github.com/webpack-contrib/mocha-loader/issues"
 }
