@@ -17,7 +17,7 @@
     "standard-version": "^4.3.0"
   },
   "peerDependencies": {
-    "mocha": "^2.0.0|| ^3.0.0 || ^4.0.0"
+    "mocha": "^2.0.0|| ^3.0.0 || ^4.0.0 || ^5.0.0"
   },
   "homepage": "https://github.com/webpack-contrib/mocha-loader",
   "repository": "https://github.com/webpack-contrib/mocha-loader",
