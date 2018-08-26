@@ -37,10 +37,10 @@
   },
   "dependencies": {
     "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
-    "css-loader": "^0.28.7",
+    "css-loader": "^1.0.0",
     "loader-utils": "^1.1.0",
     "script-loader": "^0.7.2",
-    "style-loader": "^0.19.1"
+    "style-loader": "^0.22.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
