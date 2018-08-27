@@ -1,3 +1,11 @@
-import foo from './foo';
+import test from './module';
 
-export default foo;
+describe('Suite', () => {
+  it('Test', () => {
+    if (test === true) {
+      return true;
+    }
+
+    return false;
+  });
+});

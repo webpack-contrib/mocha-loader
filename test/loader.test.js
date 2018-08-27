@@ -1,7 +1,7 @@
-import webpack from './helpers/compiler';
+const webpack = require('@webpack-contrib/test-utils');
 
 describe('Loader', () => {
-  test('Defaults', async () => {
+  test('Defaults', () => {
     const config = {
       loader: {
         test: /\.js$/,
@@ -9,15 +9,17 @@ describe('Loader', () => {
       },
     };
 
-    const stats = await webpack('fixture.js', config);
-    const { modules } = stats.toJson();
-    const [module] = modules;
+    return webpack('fixture.js', config).then((stats) => {
+      const { modules } = stats.toJson();
+      const [module] = modules;
 
-    if (module) {
-      const { source } = module;
-      expect(source).toMatchSnapshot();
-    } else {
-      expect(true).toEqual(true);
-    }
+      if (module) {
+        const { source } = module;
+
+        expect(source).toMatchSnapshot();
+      } else {
+        expect(true).toEqual(true);
+      }
+    });
   });
 });
