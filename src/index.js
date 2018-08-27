@@ -1,17 +1,9 @@
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
 const path = require('path');
 
 const loaderUtils = require('loader-utils');
 
 module.exports = function loader() {};
 module.exports.pitch = function pitch(req) {
-  if (this.cacheable) {
-    this.cacheable();
-  }
-
   const source = [];
   const query = loaderUtils.getOptions(this) || {};
 
