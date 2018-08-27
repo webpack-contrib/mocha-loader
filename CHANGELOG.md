@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/webpack-contrib/mocha-loader/compare/v1.1.3...v2.0.0) (2018-08-27)
+
+
+### Chores
+
+* **package:** upgrade to `css-loader@1.0.0` and `style-loader@0.22.1` (`dependencies`) ([#75](https://github.com/webpack-contrib/mocha-loader/issues/75)) ([5ab9ea1](https://github.com/webpack-contrib/mocha-loader/commit/5ab9ea1))
+
+
+### BREAKING CHANGES
+
+* **package:** requires `node >= v6.0.0`
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/webpack-contrib/mocha-loader/compare/v1.1.2...v1.1.3) (2018-01-24)
 
