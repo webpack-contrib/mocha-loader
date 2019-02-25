@@ -9,13 +9,13 @@ EnhancedMocha.prototype = Object.create(Mocha.prototype);
 
 EnhancedMocha.prototype.loadFiles = function loadFiles(fn) {
   const self = this;
-  const suite = this.suite;
+  const { suite } = this;
 
   suite.suites.length = 0;
   suite.tests.length = 0;
 
   try {
-    const file = this.files[0];
+    const [file] = this.files;
     if (module.hot) {
       module.hot.accept(file, () => {
         if (self.watching) {
@@ -25,6 +25,7 @@ EnhancedMocha.prototype.loadFiles = function loadFiles(fn) {
       });
     }
     suite.emit('pre-require', global, file, self);
+    // eslint-disable-next-line global-require, import/no-dynamic-require
     suite.emit('require', require(file), file, self);
     suite.emit('post-require', global, file, self);
   } catch (e) {
