@@ -1,6 +1,6 @@
 {
   "name": "mocha-loader",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Mocha loader for webpack",
   "main": "src/index.js",
   "files": [
