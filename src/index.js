@@ -44,6 +44,10 @@ module.exports.pitch = function pitch(req) {
     );
     source.push(`mocha.addFile(${JSON.stringify(`!!${req}`)});`);
     source.push('mocha.watch();');
+  } else if (this.target === 'webworker') {
+    source.push(`mocha.setup({"ui" : "bdd", "reporter": "json"});`);
+    source.push(`global.location = { search: '' };`);
+    source.push(`require(${JSON.stringify(`!!${req}`)})`);
   } else {
     throw new Error(`Unsupported target environment ${this.target}`);
   }
