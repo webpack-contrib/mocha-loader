@@ -1,26 +1,32 @@
-const path = require('path');
+import path from 'path';
 
-const loaderUtils = require('loader-utils');
+import { getOptions } from 'loader-utils';
+import validateOptions from 'schema-utils';
 
-module.exports = function loader() {};
-module.exports.pitch = function pitch(req) {
+import schema from './options.json';
+
+export default function loader() {}
+
+const startScriptPath = path.join(__dirname, 'start.js');
+const webScriptPath = path.join(__dirname, 'web.js');
+const enhancedMochaPath = path.join(__dirname, 'EnhancedMocha.js');
+
+export function pitch(req) {
+  const options = getOptions(this) || {};
+
+  validateOptions(schema, options, 'mocha-loader');
+
+  options.ui = options.ui || 'bdd';
+
   const source = [];
-  const query = loaderUtils.getOptions(this) || {};
-
-  query.ui = query.ui || 'bdd';
-
   if (this.target === 'web' || this.target === 'electron-renderer') {
-    source.push(
-      `require(${JSON.stringify(`!!${path.join(__dirname, 'web.js')}`)});`
-    );
+    source.push(`import ${JSON.stringify(`!!${webScriptPath}`)};`);
     source.push(
       "if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }"
     );
-    source.push(`mocha.setup(${JSON.stringify(query)});`);
-    source.push(`require(${JSON.stringify(`!!${req}`)})`);
-    source.push(
-      `require(${JSON.stringify(`!!${path.join(__dirname, 'start.js')}`)});`
-    );
+    source.push(`mocha.setup(${JSON.stringify(options)});`);
+    source.push(`import ${JSON.stringify(`!!${req}`)}`);
+    source.push(`import ${JSON.stringify(`!!${startScriptPath}`)};`);
     source.push('if(module.hot) {');
     source.push('\tmodule.hot.accept();');
     source.push('\tmodule.hot.dispose(function() {');
@@ -33,13 +39,11 @@ module.exports.pitch = function pitch(req) {
     source.push('}');
   } else if (this.target === 'node') {
     source.push(
-      `var EnhancedMocha = require(${JSON.stringify(
-        `!!${path.join(__dirname, 'EnhancedMocha.js')}`
-      )});`
+      `import EnhancedMocha from ${JSON.stringify(`!!${enhancedMochaPath}`)};`
     );
     source.push(
-      `var mocha = new EnhancedMocha({reporter: ${JSON.stringify(
-        query.reporter || 'spec'
+      `const mocha = new EnhancedMocha({reporter: ${JSON.stringify(
+        options.reporter || 'spec'
       )}});`
     );
     source.push(`mocha.addFile(${JSON.stringify(`!!${req}`)});`);
@@ -49,4 +53,4 @@ module.exports.pitch = function pitch(req) {
   }
 
   return source.join('\n');
-};
+}
