@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader works 1`] = `
+exports[`mocha-loader works 1`] = `
 "import \\"!!<PROJECT_ROOT>/src/web.js\\";
 if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }
 mocha.setup({\\"ui\\":\\"bdd\\"});

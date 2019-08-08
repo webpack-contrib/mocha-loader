@@ -10,7 +10,7 @@ describe('mocha-loader', () => {
     };
 
     const stats = await webpack('fixture.js', config);
-    const [, { source }] = stats.toJson().modules;
+    const [{ source }] = stats.toJson().modules;
 
     expect(source).toMatchSnapshot();
   });
