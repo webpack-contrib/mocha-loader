@@ -18,7 +18,10 @@ mochaLoader.pitch = pitch;
 export function pitch(req) {
   const options = getOptions(this) || {};
 
-  validateOptions(schema, options, 'mocha-loader');
+  validateOptions(schema, options, {
+    name: 'mocha-loader',
+    baseDataPath: 'options',
+  });
 
   options.ui = options.ui || 'bdd';
 
