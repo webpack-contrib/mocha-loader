@@ -13,7 +13,7 @@ const modules = (config) => {
           {
             test: config.loader.test || /\.js$/,
             use: {
-              loader: path.resolve(__dirname, '../../src'),
+              loader: path.resolve(__dirname, '../../src/cjs'),
               options: config.loader.options || {},
             },
           },

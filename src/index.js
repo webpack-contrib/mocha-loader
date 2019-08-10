@@ -5,11 +5,15 @@ import validateOptions from 'schema-utils';
 
 import schema from './options.json';
 
-export default function loader() {}
-
 const startScriptPath = path.join(__dirname, 'start.js');
 const webScriptPath = path.join(__dirname, 'web.js');
 const enhancedMochaPath = path.join(__dirname, 'EnhancedMocha.js');
+
+export default function mochaLoader(source) {
+  return source;
+}
+
+mochaLoader.pitch = pitch;
 
 export function pitch(req) {
   const options = getOptions(this) || {};

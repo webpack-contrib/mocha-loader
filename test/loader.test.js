@@ -2,16 +2,16 @@ import webpack from './helpers/compiler';
 
 describe('mocha-loader', () => {
   it('works', async () => {
-    const config = {
+    const stats = await webpack('fixture.js', {
       loader: {
-        test: /\.js$/,
+        test: /fixture\.js$/,
         options: {},
       },
-    };
+    });
+    const statsJson = stats.toJson();
 
-    const stats = await webpack('fixture.js', config);
-    const [{ source }] = stats.toJson().modules;
-
-    expect(source).toMatchSnapshot();
+    expect(statsJson.errors).toEqual([]);
+    expect(statsJson.warnings).toEqual([]);
+    expect(statsJson.modules[0].source).toMatchSnapshot();
   });
 });
