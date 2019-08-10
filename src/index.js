@@ -19,7 +19,7 @@ export function pitch(req) {
   const options = getOptions(this) || {};
 
   validateOptions(schema, options, {
-    name: 'mocha-loader',
+    name: 'Mocha Loader',
     baseDataPath: 'options',
   });
 
