@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-const Mocha = require('mocha');
+import Mocha from 'mocha';
 
 export default class EnhancedMocha extends Mocha {
   loadFiles(fn) {
