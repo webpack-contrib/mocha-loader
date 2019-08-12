@@ -1,25 +1,17 @@
-const webpack = require('@webpack-contrib/test-utils');
+import webpack from './helpers/compiler';
 
-describe('Loader', () => {
-  test('Defaults', () => {
-    const config = {
+describe('mocha-loader', () => {
+  it('works', async () => {
+    const stats = await webpack('fixture.js', {
       loader: {
-        test: /\.js$/,
+        test: /fixture\.js$/,
         options: {},
       },
-    };
-
-    return webpack('fixture.js', config).then((stats) => {
-      const { modules } = stats.toJson();
-      const [module] = modules;
-
-      if (module) {
-        const { source } = module;
-
-        expect(source).toMatchSnapshot();
-      } else {
-        expect(true).toEqual(true);
-      }
     });
+    const statsJson = stats.toJson();
+
+    expect(statsJson.errors).toEqual([]);
+    expect(statsJson.warnings).toEqual([]);
+    expect(statsJson.modules[0].source).toMatchSnapshot();
   });
 });

@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "allowUncaught": {
+      "type": "boolean"
+    },
+    "asyncOnly": {
+      "type": "boolean"
+    },
+    "bail": {
+      "type": "boolean"
+    },
+    "checkLeaks": {
+      "type": "boolean"
+    },
+    "delay": {
+      "type": "boolean"
+    },
+    "enableTimeouts": {
+      "type": "boolean"
+    },
+    "fgrep": {
+      "type": "string"
+    },
+    "forbidOnly": {
+      "type": "boolean"
+    },
+    "forbidPending": {
+      "type": "boolean"
+    },
+    "fullStackTrace": {
+      "type": "boolean"
+    },
+    "global": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "grep": {
+      "type": "string"
+    },
+    "growl": {
+      "type": "boolean"
+    },
+    "hideDiff": {
+      "type": "boolean"
+    },
+    "ignoreLeaks": {
+      "type": "boolean"
+    },
+    "invert": {
+      "type": "boolean"
+    },
+    "noHighlighting": {
+      "type": "boolean"
+    },
+    "reporter": {
+      "type": "string"
+    },
+    "reporterOption": {
+      "type": "object"
+    },
+    "retries": {
+      "type": "number"
+    },
+    "slow": {
+      "type": "number"
+    },
+    "timeout": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "ui": {
+      "type": "string"
+    },
+    "color": {
+      "type": "boolean"
+    },
+    "useInlineDiffs": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}
