@@ -27,13 +27,13 @@ export function pitch(req) {
 
   const source = [];
   if (this.target === 'web' || this.target === 'electron-renderer') {
-    source.push(`import ${JSON.stringify(`!!${webScriptPath}`)};`);
+    source.push(`require(${JSON.stringify(`!!${webScriptPath}`)});`);
     source.push(
       "if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }"
     );
     source.push(`mocha.setup(${JSON.stringify(options)});`);
-    source.push(`import ${JSON.stringify(`!!${req}`)}`);
-    source.push(`import ${JSON.stringify(`!!${startScriptPath}`)};`);
+    source.push(`require(${JSON.stringify(`!!${req}`)});`);
+    source.push(`require(${JSON.stringify(`!!${startScriptPath}`)});`);
     source.push('if(module.hot) {');
     source.push('\tmodule.hot.accept();');
     source.push('\tmodule.hot.dispose(function() {');
