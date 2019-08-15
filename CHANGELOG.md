@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.0.1](https://github.com/webpack-contrib/mocha-loader/compare/v2.0.0...v2.0.1) (2019-02-25)
+# [3.0.0](https://github.com/webpack-contrib/mocha-loader/compare/v2.0.1...v3.0.0) (2019-08-15)
 
-### Chores
 
-* **package:** mark `mocha@6` compatibility and upgrade all dependencies
+### Features
 
+* improve validation errors
+
+
+### BREAKING CHANGES
+
+* drop support for Node < 8.9.0
+* minimum supported `webpack` version is `4`
 
 
 
