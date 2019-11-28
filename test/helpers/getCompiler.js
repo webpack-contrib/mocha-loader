@@ -5,7 +5,7 @@ import { createFsFromVolume, Volume } from 'memfs';
 
 export default (fixture, loaderOptions = {}, config = {}) => {
   const fullConfig = {
-    mode: 'production',
+    mode: 'development',
     devtool: config.devtool || false,
     context: path.join(__dirname, '../fixtures'),
     entry: path.join(__dirname, '../fixtures', fixture),
@@ -13,9 +13,10 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       path: path.join(__dirname, '../outputs'),
       filename: '[name].bundle.js',
       chunkFilename: '[name].chunk.js',
+      pathinfo: false,
     },
-    performance: {
-      hints: false,
+    optimization: {
+      moduleIds: false,
     },
     module: {
       rules: [
