@@ -1,17 +1,15 @@
-import webpack from './helpers/compiler';
+import { compile, getCompiler, normalizeErrors, readAsset } from './helpers';
 
 describe('mocha-loader', () => {
-  it('works', async () => {
-    const stats = await webpack('fixture.js', {
-      loader: {
-        test: /fixture\.js$/,
-        options: {},
-      },
-    });
-    const statsJson = stats.toJson();
+  it('should work', async () => {
+    const compiler = getCompiler('fixture.js');
+    const stats = await compile(compiler);
 
-    expect(statsJson.errors).toEqual([]);
-    expect(statsJson.warnings).toEqual([]);
-    expect(statsJson.modules[0].source).toMatchSnapshot();
+    const outputBundleText = readAsset('main.bundle.js', compiler, stats);
+    const { errors, warnings } = stats.compilation;
+
+    expect(outputBundleText).toMatchSnapshot('result');
+    expect(normalizeErrors(warnings)).toMatchSnapshot('warnings');
+    expect(normalizeErrors(errors)).toMatchSnapshot('errors');
   });
 });
