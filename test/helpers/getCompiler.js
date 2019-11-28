@@ -15,6 +15,9 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       chunkFilename: '[name].chunk.js',
       pathinfo: false,
     },
+    optimization: {
+      namedModules: false,
+    },
     module: {
       rules: [
         {
