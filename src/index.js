@@ -28,9 +28,6 @@ export function pitch(req) {
   const source = [];
   if (this.target === 'web' || this.target === 'electron-renderer') {
     source.push(`require(${JSON.stringify(`!!${webScriptPath}`)});`);
-    source.push(
-      "if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }"
-    );
     source.push(`mocha.setup(${JSON.stringify(options)});`);
     source.push(`require(${JSON.stringify(`!!${req}`)});`);
     source.push(`require(${JSON.stringify(`!!${startScriptPath}`)});`);
