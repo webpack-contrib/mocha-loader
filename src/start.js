@@ -1,2 +1,4 @@
 /* global window */
-window.addEventListener('DOMContentLoaded', () => mocha.run());
+window.addEventListener('DOMContentLoaded', function runMocha() {
+  mocha.run();
+});
