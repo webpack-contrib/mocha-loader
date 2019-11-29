@@ -1,5 +1,3 @@
-/* global page, document */
-
 import path from 'path';
 import { promisify } from 'util';
 import { once } from 'events';
