@@ -29,6 +29,7 @@ describe('mocha-loader', () => {
   });
 
   it('executes mocha tests when evaluating bundle in browser', async () => {
+    // bundle using loader
     const compiler = getCompiler(`${loaderPath}!${testFileFixturePath}`);
     const stats = await compile(compiler);
 
@@ -37,6 +38,7 @@ describe('mocha-loader', () => {
     expect(normalizeErrors(warnings)).toMatchSnapshot('warnings');
     expect(normalizeErrors(errors)).toMatchSnapshot('errors');
 
+    // serve bundle result
     const bundleFileName = 'main.bundle.js';
     const outputBundleText = readAsset(bundleFileName, compiler, stats);
     const app = express();
@@ -47,10 +49,14 @@ describe('mocha-loader', () => {
     await once(httpServer, 'listening');
     disposables.add(promisify(httpServer.close.bind(httpServer)));
 
-    const browser = await puppeteer.launch({ devtools: false });
+    // start browser and open test page
+    const browser = await puppeteer.launch({ devtools: false, timeout: 5000 });
     disposables.add(() => browser.close());
     const [page] = await browser.pages();
+    const pageErrors = [];
+    page.on('pageerror', (e) => pageErrors.push(e));
     await page.goto('http://localhost:3000/');
+    expect(pageErrors).toHaveLength(0);
 
     const passesEl = await page.waitForSelector('#mocha-stats .passes');
     const passes = await getElementText(passesEl);
