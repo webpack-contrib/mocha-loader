@@ -47,7 +47,7 @@ describe('mocha-loader', () => {
     await once(httpServer, 'listening');
     disposables.add(promisify(httpServer.close.bind(httpServer)));
 
-    const browser = await puppeteer.launch({ devtools: true });
+    const browser = await puppeteer.launch({ devtools: false });
     disposables.add(() => browser.close());
     const [page] = await browser.pages();
     await page.goto('http://localhost:3000/');
