@@ -48,7 +48,7 @@ describe('mocha-loader', () => {
     disposables.add(promisify(httpServer.close.bind(httpServer)));
 
     // start browser and open test page
-    const browser = await puppeteer.launch({ devtools: false, timeout: 5000 });
+    const browser = await puppeteer.launch({ devtools: false, timeout: 15000 });
     disposables.add(() => browser.close());
     const [page] = await browser.pages();
     const pageErrors = [];
@@ -64,5 +64,5 @@ describe('mocha-loader', () => {
 
     expect(passes).toContain('passes: 1');
     expect(failed).toContain('failures: 1');
-  });
+  }, 20000);
 });
