@@ -3,35 +3,17 @@ import path from 'path';
 import webpack from 'webpack';
 import { createFsFromVolume, Volume } from 'memfs';
 
-export default (fixture, loaderOptions = {}, config = {}) => {
+export default (entry, config = {}) => {
   const fullConfig = {
     mode: 'development',
     devtool: config.devtool || false,
     context: path.join(__dirname, '../fixtures'),
-    entry: path.join(__dirname, '../fixtures', fixture),
+    entry,
     output: {
       path: path.join(__dirname, '../outputs'),
       filename: '[name].bundle.js',
       chunkFilename: '[name].chunk.js',
-      pathinfo: false,
     },
-    optimization: {
-      moduleIds: false,
-    },
-    module: {
-      rules: [
-        {
-          test: /\.js$/i,
-          rules: [
-            {
-              loader: path.join(__dirname, '../../src'),
-              options: loaderOptions,
-            },
-          ],
-        },
-      ],
-    },
-    plugins: [],
     ...config,
   };
 
