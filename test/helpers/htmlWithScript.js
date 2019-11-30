@@ -5,9 +5,9 @@ export default (bundleFileName) => `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>test with mocha loader</title>
+    <script src="${bundleFileName}"></script>
 </head>
 <body>
-    <script src="${bundleFileName}"></script>
 </body>
 </html>
 `;
