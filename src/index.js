@@ -1,13 +1,13 @@
-import path from 'path';
-
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
 
 import schema from './options.json';
 
-const startScriptPath = path.join(__dirname, 'start.js');
-const webScriptPath = path.join(__dirname, 'web.js');
-const enhancedMochaPath = path.join(__dirname, 'EnhancedMocha.js');
+const startScriptPath = require.resolve('./start.js');
+const enhancedMochaPath = require.resolve('./EnhancedMocha.js');
+const mochaJs = require.resolve('mocha/mocha.js');
+const mochaCss = require.resolve('mocha/mocha.css');
+const { stringify } = JSON;
 
 export default function mochaLoader(source) {
   return source;
@@ -27,13 +27,13 @@ export function pitch(req) {
 
   const source = [];
   if (this.target === 'web' || this.target === 'electron-renderer') {
-    source.push(`require(${JSON.stringify(`!!${webScriptPath}`)});`);
     source.push(
-      "if(typeof window !== 'undefined' && window.initMochaPhantomJS) { window.initMochaPhantomJS(); }"
+      `require(${stringify(`!!style-loader!css-loader!${mochaCss}`)});`
     );
-    source.push(`mocha.setup(${JSON.stringify(options)});`);
-    source.push(`require(${JSON.stringify(`!!${req}`)});`);
-    source.push(`require(${JSON.stringify(`!!${startScriptPath}`)});`);
+    source.push(`require(${stringify(`!!script-loader!${mochaJs}`)});`);
+    source.push(`mocha.setup(${stringify(options)});`);
+    source.push(`require(${stringify(`!!${req}`)});`);
+    source.push(`require(${stringify(`!!${startScriptPath}`)});`);
     source.push('if(module.hot) {');
     source.push('\tmodule.hot.accept();');
     source.push('\tmodule.hot.dispose(function() {');
@@ -46,14 +46,14 @@ export function pitch(req) {
     source.push('}');
   } else if (this.target === 'node') {
     source.push(
-      `import EnhancedMocha from ${JSON.stringify(`!!${enhancedMochaPath}`)};`
+      `import EnhancedMocha from ${stringify(`!!${enhancedMochaPath}`)};`
     );
     source.push(
-      `const mocha = new EnhancedMocha({reporter: ${JSON.stringify(
+      `const mocha = new EnhancedMocha({reporter: ${stringify(
         options.reporter || 'spec'
       )}});`
     );
-    source.push(`mocha.addFile(${JSON.stringify(`!!${req}`)});`);
+    source.push(`mocha.addFile(${stringify(`!!${req}`)});`);
     source.push('mocha.watch();');
   } else {
     throw new Error(`Unsupported target environment ${this.target}`);

@@ -1,9 +1,10 @@
-/* globals mochaPhantomJS: true, window: true */
-process.nextTick(function tick() {
-  delete require.cache[module.id];
-  if (typeof window !== 'undefined' && window.mochaPhantomJS) {
-    mochaPhantomJS.run();
-  } else {
-    mocha.run();
+/* global window document */
+window.addEventListener('DOMContentLoaded', function runMocha() {
+  if (!document.getElementById('mocha')) {
+    // eslint-disable-next-line
+    var mochaContainer = document.createElement('div');
+    mochaContainer.id = 'mocha';
+    document.body.appendChild(mochaContainer);
   }
+  mocha.run();
 });
