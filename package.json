@@ -1,6 +1,6 @@
 {
   "name": "mocha-loader",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Mocha loader for webpack",
   "license": "MIT",
   "repository": "webpack-contrib/mocha-loader",
@@ -35,9 +35,7 @@
     "defaults": "webpack-defaults"
   },
   "files": [
-    "dist/",
-    "lib/",
-    "index.js"
+    "dist"
   ],
   "peerDependencies": {
     "mocha": "^5.0.0 || ^6.0.0",
