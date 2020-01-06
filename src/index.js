@@ -30,7 +30,7 @@ export function pitch(req) {
     source.push(
       `require(${stringify(`!!style-loader!css-loader!${mochaCss}`)});`
     );
-    source.push(`require(${stringify(`!!script-loader!${mochaJs}`)});`);
+    source.push(`require(${stringify(`!!${mochaJs}`)});`);
     source.push(`mocha.setup(${stringify(options)});`);
     source.push(`require(${stringify(`!!${req}`)});`);
     source.push(`require(${stringify(`!!${startScriptPath}`)});`);
