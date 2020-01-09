@@ -1,6 +1,14 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.0.1](https://github.com/webpack-contrib/mocha-loader/compare/v4.0.0...v4.0.1) (2020-01-09)
+
+
+### Bug Fixes
+
+* compatibility with mocha@7 ([#87](https://github.com/webpack-contrib/mocha-loader/issues/87)) ([1d99129](https://github.com/webpack-contrib/mocha-loader/commit/1d99129a1d097bce38384e6db236a13faee0b815))
+* remove archived script-loader ([#86](https://github.com/webpack-contrib/mocha-loader/issues/86)) ([8c86110](https://github.com/webpack-contrib/mocha-loader/commit/8c861101a8acb9be935bd218870a9f7ee742b045))
 
 # [4.0.0](https://github.com/webpack-contrib/mocha-loader/compare/v3.0.0...v4.0.0) (2019-12-02)
 
