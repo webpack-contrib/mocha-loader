@@ -48,11 +48,17 @@ describe('mocha-loader', () => {
     disposables.add(promisify(httpServer.close.bind(httpServer)));
 
     // start browser and open test page
-    const browser = await puppeteer.launch({ devtools: false, timeout: 15000 });
+    const browser = await puppeteer.launch({
+      devtools: false,
+      timeout: 15000,
+      pipe: true,
+    });
     disposables.add(() => browser.close());
+
     const [page] = await browser.pages();
     const pageErrors = [];
     page.on('pageerror', (e) => pageErrors.push(e));
+
     await page.goto('http://localhost:3000/');
     expect(pageErrors).toHaveLength(0);
 
