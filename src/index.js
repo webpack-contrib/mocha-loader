@@ -4,7 +4,6 @@ import validateOptions from 'schema-utils';
 import schema from './options.json';
 
 const startScriptPath = require.resolve('./start.js');
-const enhancedMochaPath = require.resolve('./EnhancedMocha.js');
 const mochaJs = require.resolve('mocha/mocha.js');
 const mochaCss = require.resolve('mocha/mocha.css');
 const { stringify } = JSON;
@@ -44,17 +43,6 @@ export function pitch(req) {
     source.push('\t\treport && report.parentNode.removeChild(report);');
     source.push('\t});');
     source.push('}');
-  } else if (this.target === 'node') {
-    source.push(
-      `import EnhancedMocha from ${stringify(`!!${enhancedMochaPath}`)};`
-    );
-    source.push(
-      `const mocha = new EnhancedMocha({reporter: ${stringify(
-        options.reporter || 'spec'
-      )}});`
-    );
-    source.push(`mocha.addFile(${stringify(`!!${req}`)});`);
-    source.push('mocha.watch();');
   } else {
     throw new Error(`Unsupported target environment ${this.target}`);
   }
