@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.0](https://github.com/webpack-contrib/mocha-loader/compare/v4.0.2...v5.0.0) (2020-03-24)
+
+
+### Bug Fixes
+
+* remove broken handling of "target": "node" ([#92](https://github.com/webpack-contrib/mocha-loader/issues/92)) ([b84eb10](https://github.com/webpack-contrib/mocha-loader/commit/b84eb10b700b331815d1ca4d62ef61d269994eb9))
+
+### BREAKING CHANGES
+
+* the `node` target doesn't supported
+
+
+
 ### [4.0.2](https://github.com/webpack-contrib/mocha-loader/compare/v4.0.1...v4.0.2) (2020-03-19)
 
 * update deps
