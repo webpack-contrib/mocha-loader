@@ -54,7 +54,7 @@ describe('mocha-loader', () => {
       timeout: 15000,
       pipe: true,
     });
-    disposables.add(() => browser.close());
+    disposables.add(async () => browser.close());
 
     const [page] = await browser.pages();
     const pageErrors = [];
