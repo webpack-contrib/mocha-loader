@@ -22,7 +22,7 @@
     "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
     "commitlint": "commitlint --from=master",
     "security": "npm audit",
-    "lint:prettier": "prettier \"{**/*,*}.{js,json,md,yml,css,ts}\" --list-different",
+    "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "test:only": "cross-env NODE_ENV=test jest",
@@ -42,10 +42,10 @@
     "webpack": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.5.3",
     "loader-utils": "^2.0.0",
-    "schema-utils": "^2.6.5",
-    "style-loader": "^1.1.3"
+    "schema-utils": "^2.6.6",
+    "style-loader": "^1.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -56,22 +56,21 @@
     "@webpack-contrib/defaults": "^6.3.0",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^25.2.4",
-    "commitlint-azure-pipelines-cli": "^1.0.3",
     "cross-env": "^7.0.2",
     "del-cli": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
+    "events.once": "^2.0.2",
     "express": "^4.17.1",
-    "husky": "^4.2.3",
+    "husky": "^4.2.5",
     "jest": "^25.2.4",
-    "jest-junit": "^10.0.0",
     "lint-staged": "^10.1.1",
     "memfs": "^3.1.2",
     "mocha": "^7.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.2",
-    "puppeteer": "^2.1.1",
+    "puppeteer": "^3.0.1",
     "standard-version": "^7.1.0",
     "webpack": "^4.42.1"
   },

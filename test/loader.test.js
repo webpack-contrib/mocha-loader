@@ -1,5 +1,6 @@
 import path from 'path';
 import { promisify } from 'util';
+import 'events.once/polyfill';
 import { once } from 'events';
 
 import puppeteer from 'puppeteer';
