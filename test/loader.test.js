@@ -1,6 +1,5 @@
 import path from 'path';
 import { promisify } from 'util';
-import 'events.once/polyfill';
 import { once } from 'events';
 
 import puppeteer from 'puppeteer';
@@ -54,7 +53,7 @@ describe('mocha-loader', () => {
       timeout: 15000,
       pipe: true,
     });
-    disposables.add(async () => browser.close());
+    disposables.add(() => browser.close());
 
     const [page] = await browser.pages();
     const pageErrors = [];
