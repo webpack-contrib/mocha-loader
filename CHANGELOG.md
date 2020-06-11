@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/webpack-contrib/mocha-loader/compare/v5.0.0...v5.1.0) (2020-06-11)
+
+
+### Features
+
+* support mocha@8 ([#96](https://github.com/webpack-contrib/mocha-loader/issues/96)) ([82f82a6](https://github.com/webpack-contrib/mocha-loader/commit/82f82a6084e355a86844ffe8222100c41c73e2ec))
+
 ### [5.0.0](https://github.com/webpack-contrib/mocha-loader/compare/v4.0.2...v5.0.0) (2020-03-24)
 
 
