@@ -108,8 +108,8 @@ describe('Test', () => {
 [node-url]: https://nodejs.org
 [deps]: https://david-dm.org/webpack-contrib/mocha-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/mocha-loader
-[test]: https://dev.azure.com/webpack-contrib/mocha-loader/_apis/build/status/webpack-contrib.mocha-loader?branchName=master
-[test-url]: https://dev.azure.com/webpack-contrib/mocha-loader/_build/latest?definitionId=20&branchName=master
+[tests]: https://github.com/webpack-contrib/mocha-loader/workflows/mocha-loader/badge.svg
+[tests-url]: https://github.com/webpack-contrib/mocha-loader/actions
 [cover]: https://codecov.io/gh/webpack-contrib/mocha-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/mocha-loader
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
