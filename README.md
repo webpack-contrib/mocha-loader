@@ -1,9 +1,3 @@
-[![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![deps][deps]][deps-url]
-[![test][test]][test-url]
-[![chat][chat]][chat-url]
-
 <div align="center">
   <img width="200" height="200"
     src="https://cdn.worldvectorlogo.com/logos/mocha.svg">
@@ -11,37 +5,37 @@
     <img width="200" height="200" hspace="20"
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
-  <h1>Mocha Loader</h1>
-  <p>Allows <a href="http://mochajs.org/">Mocha</a> tests to be loaded and run via webpack</p>
 </div>
 
-<h2 align="center">Install</h2>
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+[![deps][deps]][deps-url]
+[![tests][tests]][tests-url]
+[![coverage][cover]][cover-url]
+[![chat][chat]][chat-url]
+[![size][size]][size-url]
 
-```bash
-npm i -D mocha-loader
+# mocha-loader
+
+Allows [Mocha](https://mochajs.org/) tests to be loaded and run via webpack.
+
+## Getting Started
+
+To begin, you'll need to install `mocha-loader` and `mocha`:
+
+```console
+npm install --save-dev mocha-loader mocha
 ```
 
-<h2 align="center">Usage</h2>
+Then add the plugin to your `webpack` config. For example:
 
-### CLI
-
-```bash
-webpack --module-bind 'mocha-loader!./test'
-```
-
-### Require
+**file.js**
 
 ```js
-import test from 'mocha-loader!./test';
+import test from './test.js';
 ```
 
-### Config (recommended)
-
-```js
-import test from './test';
-```
-
-**`webpack.config.js`**
+**webpack.config.js**
 
 ```js
 module.exports = {
@@ -62,25 +56,27 @@ module.exports = {
 };
 ```
 
-<h2 align="center">Options</h2>
+And run `webpack` via your preferred method.
 
->
+Alternative usage (without configuration):
 
-> **None**
+```js
+import test from 'mocha-loader!./test.js';
+```
 
->
+No options for loader.
 
-<h2 align="center">Examples</h2>
+## Examples
 
 ### Basic
 
-**`module.js`**
+**file.js**
 
 ```js
 module.exports = true;
 ```
 
-**`test.js`**
+**test.js**
 
 ```js
 describe('Test', () => {
@@ -102,6 +98,16 @@ describe('Test', () => {
 });
 ```
 
+## Contributing
+
+Please take a moment to read our contributing guidelines if you haven't yet done so.
+
+[CONTRIBUTING](./.github/CONTRIBUTING.md)
+
+## License
+
+[MIT](./LICENSE)
+
 [npm]: https://img.shields.io/npm/v/mocha-loader.svg
 [npm-url]: https://npmjs.com/package/mocha-loader
 [node]: https://img.shields.io/node/v/mocha-loader.svg
@@ -112,5 +118,7 @@ describe('Test', () => {
 [tests-url]: https://github.com/webpack-contrib/mocha-loader/actions
 [cover]: https://codecov.io/gh/webpack-contrib/mocha-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/mocha-loader
-[chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
+[chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
+[size]: https://packagephobia.now.sh/badge?p=mocha-loader
+[size-url]: https://packagephobia.now.sh/result?p=mocha-loader
