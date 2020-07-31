@@ -29,14 +29,15 @@ export function pitch(req) {
     source.push(
       `require(${stringify(`!!style-loader!css-loader!${mochaCss}`)});`
     );
-    source.push(`require(${stringify(`!!${mochaJs}`)});`);
-    source.push(`mocha.setup(${stringify(options)});`);
+    source.push(`var mochaModule = require(${stringify(`!!${mochaJs}`)});`);
+    source.push(`var mochaInstance = window.mocha || mochaModule;`);
+    source.push(`mochaInstance.setup(${stringify(options)});`);
     source.push(`require(${stringify(`!!${req}`)});`);
     source.push(`require(${stringify(`!!${startScriptPath}`)});`);
     source.push('if(module.hot) {');
     source.push('\tmodule.hot.accept();');
     source.push('\tmodule.hot.dispose(function() {');
-    source.push('\t\tmocha.suite.suites.length = 0;');
+    source.push('\t\tmochaInstance.suite.suites.length = 0;');
     source.push("\t\tvar stats = document.getElementById('mocha-stats');");
     source.push("\t\tvar report = document.getElementById('mocha-report');");
     source.push('\t\tstats && stats.parentNode.removeChild(stats);');

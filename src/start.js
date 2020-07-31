@@ -1,3 +1,9 @@
+/* eslint-disable no-var */
+
+var mochaModule = require('mocha/mocha.js');
+
+var mochaInstance = window.mocha || mochaModule;
+
 /* global window document */
 window.addEventListener('DOMContentLoaded', function runMocha() {
   if (!document.getElementById('mocha')) {
@@ -6,5 +12,5 @@ window.addEventListener('DOMContentLoaded', function runMocha() {
     mochaContainer.id = 'mocha';
     document.body.appendChild(mochaContainer);
   }
-  mocha.run();
+  mochaInstance.run();
 });
