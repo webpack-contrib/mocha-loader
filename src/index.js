@@ -1,5 +1,5 @@
 import { getOptions } from 'loader-utils';
-import validateOptions from 'schema-utils';
+import { validate } from 'schema-utils';
 
 import schema from './options.json';
 
@@ -17,7 +17,7 @@ mochaLoader.pitch = pitch;
 export function pitch(req) {
   const options = getOptions(this) || {};
 
-  validateOptions(schema, options, {
+  validate(schema, options, {
     name: 'Mocha Loader',
     baseDataPath: 'options',
   });
