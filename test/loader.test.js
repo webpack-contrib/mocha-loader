@@ -22,13 +22,19 @@ describe('mocha-loader', () => {
   const disposables = new Set();
 
   afterEach(async () => {
-    await Promise.all(Array.from(disposables).map((d) => d()));
+    for (const dispose of Array.from(disposables).reverse()) {
+      // eslint-disable-next-line no-await-in-loop
+      await dispose();
+    }
     disposables.clear();
   });
 
   it('executes mocha tests when evaluating bundle in browser', async () => {
     // bundle using loader
     const compiler = getCompiler(`${loaderPath}!${testFileFixturePath}`);
+    if (compiler.inputFileSystem.purge) {
+      disposables.add(() => compiler.inputFileSystem.purge());
+    }
     const stats = await compile(compiler);
 
     const { errors, warnings } = stats.compilation;
@@ -51,7 +57,6 @@ describe('mocha-loader', () => {
     const browser = await puppeteer.launch({
       devtools: false,
       timeout: 15000,
-      pipe: true,
     });
     disposables.add(() => browser.close());
 
@@ -70,5 +75,5 @@ describe('mocha-loader', () => {
 
     expect(passes).toContain('passes: 1');
     expect(failed).toContain('failures: 1');
-  }, 20000);
+  }, 30000);
 });
