@@ -1,3 +1,7 @@
+# DEPRECATED
+
+If you would like to continue to support/maintenance this package please contact me https://twitter.com/alexander_akait
+
 <div align="center">
   <img width="200" height="200"
     src="https://cdn.worldvectorlogo.com/logos/mocha.svg">
